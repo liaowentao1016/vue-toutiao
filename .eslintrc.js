@@ -1,17 +1,24 @@
 module.exports = {
   root: true,
+
   env: {
     node: true
   },
-  extends: [
-    'plugin:vue/essential',
-    '@vue/standard'
-  ],
+
+  extends: ['plugin:vue/essential', '@vue/standard'],
+
   parserOptions: {
     parser: 'babel-eslint'
   },
+
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
-  }
+    'space-before-function-paren': 0,
+    'no-console': 'off',
+    'no-debugger': 'off',
+    'no-unused-vars': 'off',
+    'space-before-blocks': 'off',
+    'no-multi-spaces': 0
+  },
+
+  extends: ['plugin:vue/essential', '@vue/standard']
 }
