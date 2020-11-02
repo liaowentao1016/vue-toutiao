@@ -1,5 +1,6 @@
 @import './normalize.css';
 @import './icon.less';
+@import './global.css';
 
 /*:root -> 获取根元素html*/
 :root {
@@ -28,6 +29,7 @@ body {
   color: var(--color-text);
   /* rem vw/vh */
   width: 100vw;
+  background-color: #f5f7f9;
 }
 
 a {
