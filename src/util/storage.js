@@ -14,7 +14,7 @@ export const getItem = name => {
 }
 
 export const setItem = (name, value) => {
-  if (typeof value === 'object' || typeof value === 'array') {
+  if (typeof value === 'object') {
     value = JSON.stringify(value)
   }
   window.localStorage.setItem(name, value)

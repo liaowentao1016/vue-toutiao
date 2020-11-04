@@ -3,6 +3,9 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 
+// 导入格式化时间
+import '@/util/dayjs'
+
 // 导入 amfe-flexible 用于自动设置rem基准值
 import 'amfe-flexible'
 
