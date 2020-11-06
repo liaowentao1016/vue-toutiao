@@ -1,6 +1,8 @@
 <template>
   <div>
-    <router-view />
+    <keep-alive>
+      <router-view />
+    </keep-alive>
 
     <!--底部TabBar组件-->
     <van-tabbar v-model="active" route>
