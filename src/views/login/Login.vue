@@ -64,7 +64,7 @@ export default {
     return {
       user: {
         mobile: '',
-        code: ''
+        code: '246810'
       },
       Rules: {
         mobile: [
