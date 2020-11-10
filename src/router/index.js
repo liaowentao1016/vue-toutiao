@@ -50,6 +50,11 @@ const routes = [
     path: '/editProfile',
     name: 'EditProfile',
     component: () => import('@/views/edit-profile/EditProfile')
+  },
+  {
+    path: '/userChat',
+    name: 'UserChat',
+    component: () => import('@/views/user-chat/UserChat')
   }
 ]
 

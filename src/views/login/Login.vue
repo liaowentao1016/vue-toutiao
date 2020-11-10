@@ -98,6 +98,8 @@ export default {
         this.$toast.success('登录成功')
         // 将用户信息(token)存放在仓库中
         this.$store.commit('setUser', data.data)
+        // 添加需要缓存的组件
+        this.$store.commit('addCacheComponent', 'LayOut')
         // 登录成功 跳转会原来的页面
         this.$router.back()
       } catch (error) {

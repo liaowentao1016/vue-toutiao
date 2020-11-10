@@ -1,5 +1,5 @@
 <template>
-  <div class="article-list">
+  <div class="article-list" ref="articleList">
     <van-pull-refresh
       v-model="isRfreshLoading"
       @refresh="onRefresh"
@@ -27,6 +27,8 @@ import { getArticles } from '@/network/article'
 
 import ArticleItem from '@/components/common/ArticleItem'
 
+import { debounce } from 'lodash'
+
 export default {
   props: {
     channel: {
@@ -49,7 +51,9 @@ export default {
         // 时间戳，相当于页码,当传入当前时间戳时相当于获取第一页的数据，
         // 上一页数据返回结果中会有下一页数据的时间戳通过该时间戳来获取下一页的数据
         timestamp: Date.now(),
-        with_top: 1 // 是否置顶
+        with_top: 1, // 是否置顶
+        articleListDom: null, // 组件DOM元素
+        scrollTop: null // 用来记录滚动的距离
       }
     }
   },
@@ -84,6 +88,17 @@ export default {
   },
   components: {
     ArticleItem
+  },
+  mounted() {
+    this.articleListDom = this.$refs.articleList
+    // 1.监听滚动事件
+    this.articleListDom.onscroll = debounce(() => {
+      this.scrollTop = this.articleListDom.scrollTop
+    }, 50)
+  },
+  // 组件被激活调用 与keep-alive配合使用
+  activated() {
+    this.articleListDom.scrollTop = this.scrollTop
   }
 }
 </script>

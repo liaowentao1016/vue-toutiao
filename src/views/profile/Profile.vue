@@ -73,7 +73,7 @@
     </van-grid>
 
     <van-cell title="消息通知" is-link to="" />
-    <van-cell title="小智同学" is-link to="" class="mb-4" />
+    <van-cell title="小智同学" is-link to="/userChat" class="mb-4" />
     <van-cell
       v-if="user"
       title="退出登录"
@@ -107,6 +107,8 @@ export default {
         .then(() => {
           // on confirm
           this.$store.commit('setUser', null)
+          // 清除缓存的组件
+          this.$store.commit('romoveCacheComponent', 'LayOut')
         })
         .catch(() => {
           // on cancel
