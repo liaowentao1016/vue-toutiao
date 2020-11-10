@@ -10,7 +10,12 @@
           :src="CurrentUserInfo.photo"
         />
         <div slot="title" class="name">{{ CurrentUserInfo.name }}</div>
-        <van-button slot="default" size="small" round class="bianji-btn"
+        <van-button
+          slot="default"
+          size="small"
+          round
+          class="bianji-btn"
+          to="/editProfile"
           >编辑资料</van-button
         >
       </van-cell>
