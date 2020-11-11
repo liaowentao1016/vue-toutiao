@@ -89,7 +89,8 @@ router.beforeEach((to, from, next) => {
           })
         })
         .catch(() => {
-          // on cancel
+          // on cancel 中断当前导航
+          next(false)
         })
     } else {
       // 如果用户登录了那就直接放行
