@@ -30,6 +30,10 @@ export default {
   },
   computed: {
     ...mapState(['user'])
+  },
+  created() {
+    // 添加需要缓存的组件
+    this.$store.commit('addCacheComponent', 'LayOut')
   }
 }
 </script>

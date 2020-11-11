@@ -52,7 +52,14 @@
       <img
         class="mobile"
         src="@/assets/img/手机.png"
-        @click="$router.push('/login')"
+        @click="
+          $router.push({
+            path: '/login',
+            query: {
+              redirect: '/profile'
+            }
+          })
+        "
       />
       <div class="text">点击登录</div>
     </div>
@@ -73,7 +80,7 @@
     </van-grid>
 
     <van-cell title="消息通知" is-link to="" />
-    <van-cell title="小智同学" is-link to="/userChat" class="mb-4" />
+    <van-cell title="小智同学" is-link @click="goUserChat" class="mb-4" />
     <van-cell
       v-if="user"
       title="退出登录"
@@ -107,8 +114,6 @@ export default {
         .then(() => {
           // on confirm
           this.$store.commit('setUser', null)
-          // 清除缓存的组件
-          this.$store.commit('romoveCacheComponent', 'LayOut')
         })
         .catch(() => {
           // on cancel
@@ -117,6 +122,9 @@ export default {
     async getCurrentUserInfo() {
       const { data } = await getUserInfo()
       this.CurrentUserInfo = data.data
+    },
+    goUserChat() {
+      this.$router.push({ path: '/userChat' }).catch(() => {})
     }
   },
   created() {
