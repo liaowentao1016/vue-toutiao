@@ -51,10 +51,10 @@ export default {
         // 时间戳，相当于页码,当传入当前时间戳时相当于获取第一页的数据，
         // 上一页数据返回结果中会有下一页数据的时间戳通过该时间戳来获取下一页的数据
         timestamp: Date.now(),
-        with_top: 1, // 是否置顶
-        articleListDom: null, // 组件DOM元素
-        scrollTop: null // 用来记录滚动的距离
-      }
+        with_top: 1 // 是否置顶
+      },
+      articleListDom: null, // 组件DOM元素
+      scrollTop: null // 用来记录滚动的距离
     }
   },
   methods: {
